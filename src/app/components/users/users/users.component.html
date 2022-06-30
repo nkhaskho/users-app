@@ -1,9 +1,12 @@
-<div class="h4">Accounts list</div>
+<div class="h4">Accounts list</div><br>
 <ul class="list-group list-group-numbered">
     <li *ngFor="let user of users" class="list-group-item d-flex justify-content-between align-items-start">
-      <div class="ms-2 me-auto" routerLink="/users/edit/{{user._id}}">
+      <div class="ms-2 me-auto">
         <div class="fw-bold">{{ user.nickname }}</div>
       </div>
-      <span class="badge bg-danger rounded-pill">Delete</span>
+      <div class="d-grid gap-2 d-md-block">
+        <button class="btn btn-info" routerLink="/users/edit/{{user._id}}" type="button">View</button>
+        <button class="btn btn-danger" (click)="delete(user._id || '')" type="button">Delete</button>
+      </div>
     </li>
 </ul>

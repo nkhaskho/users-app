@@ -33,7 +33,10 @@ export class UserFormComponent implements OnInit {
   save() {
     if (this.user._id) {
       this.userService.updateUser(this.user).toPromise()
-      .then(res => this.user = res)
+      .then(res => {
+        this.fResponse.setMessage("User updated succesfully.");
+        this.user = res;
+      })
       .catch(err => console.log)
     } else {
       this.userService.addUser(this.user).toPromise()

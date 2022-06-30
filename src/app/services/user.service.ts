@@ -29,4 +29,9 @@ export class UserService {
   updateUser(user: User) {
     return this.http.put<User>(`${this.endpoint}/${user._id}`, user);
   }
+
+  deleteUser(id: string) {
+    return this.http.delete(`${this.endpoint}/${id}`);
+  }
+
 }

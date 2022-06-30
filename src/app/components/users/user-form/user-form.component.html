@@ -1,5 +1,7 @@
 <div class="col-md-4 offset-md-3">
     <br>
+    <button type="submit" routerLink="/users" class="btn btn-light"><< Back</button>
+    <br><br>
     <div class="mb-3">
         <label class="form-label">Nickname</label>
         <input type="text" [(ngModel)]="user.nickname" class="form-control">
@@ -26,5 +28,8 @@
     </div>
     <br>
     <app-form-response [error]="fResponse.error" [message]="fResponse.message"></app-form-response>
-    <button type="submit" (click)="save()" class="btn btn-primary">Save</button>
+    
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button type="submit" (click)="save()" class="btn btn-primary text-end">Save</button>
+    </div>
 </div>

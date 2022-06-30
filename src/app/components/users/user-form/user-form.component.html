@@ -1,0 +1,30 @@
+<div class="col-md-4 offset-md-3">
+    <br>
+    <div class="mb-3">
+        <label class="form-label">Nickname</label>
+        <input type="text" [(ngModel)]="user.nickname" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input *ngIf="user._id" type="email" [(ngModel)]="user.email" class="form-control" disabled>
+        <input *ngIf="!user._id" type="email" [(ngModel)]="user.email" class="form-control">
+    </div>
+    <div *ngIf="!user._id" class="mb-3">
+      <label class="form-label">Password</label>
+      <input type="password" [(ngModel)]="user.password" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Country</label>
+        <select [(ngModel)]="user.country" class="form-select" aria-label="Default select example">
+            <option value="1" *ngFor="let country of countries" [value]="country">{{ country }}</option>
+        </select>
+    </div>
+    
+    <div class="mb-3">
+        <label class="form-label">Phone</label>
+        <input type="number" [(ngModel)]="user.phone" class="form-control">
+    </div>
+    <br>
+    <app-form-response [error]="fResponse.error" [message]="fResponse.message"></app-form-response>
+    <button type="submit" (click)="save()" class="btn btn-primary">Save</button>
+</div>
